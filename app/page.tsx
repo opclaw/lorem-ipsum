@@ -5,21 +5,25 @@ import { useState, useCallback } from 'react'
 const loremWords = 'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum'.split(' ')
 
 function generateLorem(count: number, asParagraphs: boolean): string {
-  const words: string[] = []
-  for (let i = 0; i < count; i++) {
-    words.push(loremWords[Math.floor(Math.random() * loremWords.length)])
-  }
-  
   if (asParagraphs) {
     const paragraphs: string[] = []
-    const wordsPerParagraph = Math.ceil(count / 3)
-    for (let i = 0; i < 3 && words.length > 0; i++) {
-      const paragraphWords = words.splice(0, wordsPerParagraph)
-      paragraphs.push(paragraphWords.join(' ').replace(/^[a-z]/, (c) => c.toUpperCase()) + '.')
+    const wordsPerParagraph = 60 // ~60 слов на параграф
+    
+    for (let i = 0; i < count; i++) {
+      const words: string[] = []
+      for (let j = 0; j < wordsPerParagraph; j++) {
+        words.push(loremWords[Math.floor(Math.random() * loremWords.length)])
+      }
+      paragraphs.push(words.join(' ').replace(/^[a-z]/, (c) => c.toUpperCase()) + '.')
     }
     return paragraphs.join('\n\n')
   }
   
+  // Режим слов
+  const words: string[] = []
+  for (let i = 0; i < count; i++) {
+    words.push(loremWords[Math.floor(Math.random() * loremWords.length)])
+  }
   return words.join(' ').replace(/^[a-z]/, (c) => c.toUpperCase()) + '.'
 }
 
