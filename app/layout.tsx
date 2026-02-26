@@ -3,6 +3,9 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lorem-ipsum.vercel.app'),
+  alternates: {
+    canonical: 'https://lorem-ipsum.vercel.app',
+  },
   title: 'Lorem Ipsum Generator — Generate Placeholder Text | Free Tool',
   description: 'Generate Lorem Ipsum placeholder text for your designs. Free online Lorem Ipsum generator.',
   keywords: ['lorem ipsum', 'lorem ipsum generator', 'placeholder text', 'dummy text'],
