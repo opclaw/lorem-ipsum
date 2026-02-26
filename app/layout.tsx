@@ -17,11 +17,18 @@ export const metadata: Metadata = {
     siteName: 'Lorem Ipsum',
     title: 'Lorem Ipsum Generator — Generate Placeholder Text',
     description: 'Generate Lorem Ipsum placeholder text.',
+    images: [{
+      url: '/og-image.svg',
+      width: 1200,
+      height: 630,
+      alt: 'Lorem Ipsum Generator',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Lorem Ipsum Generator',
     description: 'Generate Lorem Ipsum placeholder text.',
+    images: ['/og-image.svg'],
   },
   robots: { index: true, follow: true },
 }
